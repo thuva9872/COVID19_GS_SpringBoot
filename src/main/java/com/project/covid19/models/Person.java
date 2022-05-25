@@ -30,7 +30,6 @@ public class Person {
     private Date dateOfBirth;
     private String job;
     private String jobLocation;
-    private List<VaccinationDetail> vaccinationDetailList;
     public Person() {
     }
     public Person(String nic,String name, int familyId, Date dateOfBirth, String address, String job, String jobLocation) {
@@ -95,12 +94,4 @@ public class Person {
         this.address = address;
     }
 
-
-    public List<VaccinationDetail> getVaccinationDetailList() {
-        return vaccinationDetailList;
-    }
-
-    public void setVaccinationDetailList(List<VaccinationDetail> vaccinationDetailList) {
-        this.vaccinationDetailList = vaccinationDetailList;
-    }
 }

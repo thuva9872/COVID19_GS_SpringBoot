@@ -10,7 +10,5 @@ import com.project.covid19.models.Person;
 public interface PersonRepository extends JpaRepository<Person, String> {
     Optional<Person> findByNic(String nic);
     Boolean existsByNic(String nic);
-
-    @Query(value = "SELECT a FROM person WHERE a.familyId = ?1",nativeQuery = true)
-    List<Person> findAllInSameFamily(int familyId);
+    List<Person> findByFamilyId(int familyId);
 }

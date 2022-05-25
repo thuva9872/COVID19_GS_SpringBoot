@@ -23,16 +23,13 @@ public class Grocery {
     @Size(max = 200)
     private String address;
     @NotBlank
-    @Temporal(TemporalType.TIME)
-    private Date openingTime;
+    private String openingTime;
     @NotBlank
-    @Temporal(TemporalType.TIME)
-    private Date closingTime;
+    private String closingTime;
 
     public Grocery() {
     }
-    public Grocery(int id, String name, String address, Date openingTime, Date closingTime) {
-        this.id = id;
+    public Grocery(String name, String address, String openingTime, String closingTime) {
         this.name=name;
         this.address=address;
         this.openingTime=openingTime;
@@ -63,19 +60,19 @@ public class Grocery {
         this.address = address;
     }
 
-    public Date getOpeningTime() {
+    public String getOpeningTime() {
         return openingTime;
     }
 
-    public void setOpeningTime(Date openingTime) {
+    public void setOpeningTime(String openingTime) {
         this.openingTime = openingTime;
     }
 
-    public Date getClosingTime() {
+    public String getClosingTime() {
         return closingTime;
     }
 
-    public void setClosingTime(Date closingTime) {
+    public void setClosingTime(String closingTime) {
         this.closingTime = closingTime;
     }
 }

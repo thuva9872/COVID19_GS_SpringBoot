@@ -67,4 +67,11 @@ public class VaccinationDetail {
         this.vaccinationDate = vaccinationDate;
     }
 
+    public int getRecordId() {
+        return recordId;
+    }
+
+    public void setRecordId(int recordId) {
+        this.recordId = recordId;
+    }
 }
