@@ -23,15 +23,18 @@ public class Grocery {
     @Size(max = 200)
     private String address;
     @NotBlank
+    private String location;
+    @NotBlank
     private String openingTime;
     @NotBlank
     private String closingTime;
 
     public Grocery() {
     }
-    public Grocery(String name, String address, String openingTime, String closingTime) {
+    public Grocery(String name, String address,String location, String openingTime, String closingTime) {
         this.name=name;
         this.address=address;
+        this.location=location;
         this.openingTime=openingTime;
         this.closingTime=closingTime;
     }
@@ -74,5 +77,15 @@ public class Grocery {
 
     public void setClosingTime(String closingTime) {
         this.closingTime = closingTime;
+    }
+
+    public String getLocation() {
+
+        return location;
+    }
+
+    public void setLocation(String location) {
+
+        this.location = location;
     }
 }

@@ -14,6 +14,9 @@ public class AddStoreRequest {
   @NotBlank
   @Size(max = 200)
   private String address;
+
+  @NotBlank
+  private String location;
   @NotBlank
   private String openingTime;
   @NotBlank
@@ -35,7 +38,13 @@ public class AddStoreRequest {
   public void setAddress(String address) {
     this.address = address;
   }
+  public String getLocation() {
+    return location;
+  }
 
+  public void setLocation(String location) {
+    this.location = location;
+  }
   public String getOpeningTime() {
     return openingTime;
   }

@@ -119,7 +119,9 @@ public class GSController {
 
     @PostMapping("/addPharmacy")
     public ResponseEntity<?> addPharmacy(@Valid @RequestBody AddStoreRequest addPharmacyRequest){
-        Pharmacy pharmacy=new Pharmacy(addPharmacyRequest.getName(),addPharmacyRequest.getAddress(),addPharmacyRequest.getOpeningTime(),addPharmacyRequest.getClosingTime());
+        Pharmacy pharmacy=new Pharmacy(addPharmacyRequest.getName(),addPharmacyRequest.getAddress(),
+                addPharmacyRequest.getLocation(),addPharmacyRequest.getOpeningTime(),
+                addPharmacyRequest.getClosingTime());
         int id=pharmacyRepository.save(pharmacy).getId();
         if(pharmacyRepository.existsById(id)){
             return ResponseEntity.ok(new MessageResponse("Pharmacy added successfully."));
@@ -135,7 +137,8 @@ public class GSController {
 
     @PostMapping("/addGroceryStore")
     public ResponseEntity<?> addGroceryStore(@Valid @RequestBody AddStoreRequest addGroceryRequest){
-        Grocery grocery=new Grocery(addGroceryRequest.getName(),addGroceryRequest.getAddress(),addGroceryRequest.getOpeningTime(),addGroceryRequest.getClosingTime());
+        Grocery grocery=new Grocery(addGroceryRequest.getName(),addGroceryRequest.getAddress(),
+                addGroceryRequest.getLocation(),addGroceryRequest.getOpeningTime(),addGroceryRequest.getClosingTime());
         int id=groceryRepository.save(grocery).getId();
         if(groceryRepository.existsById(id)){
             return ResponseEntity.ok(new MessageResponse("Grocery store added successfully."));
