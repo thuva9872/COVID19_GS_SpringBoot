@@ -5,8 +5,10 @@ import com.project.covid19.payload.request.AddCovidStatusRequest;
 import com.project.covid19.payload.request.AddPersonRequest;
 import com.project.covid19.payload.request.AddStoreRequest;
 import com.project.covid19.payload.request.AddVaccinationRequest;
+import com.project.covid19.payload.response.DashboardResponse;
 import com.project.covid19.payload.response.MessageResponse;
 import com.project.covid19.repository.*;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -150,5 +152,14 @@ public class GSController {
     public ResponseEntity getGroceryStores(){
         List<Grocery> nearbyGroceryList=groceryRepository.findAll();
         return ResponseEntity.ok(nearbyGroceryList);
+    }
+
+    @GetMapping("/getDashboard")
+    public ResponseEntity<?> getDashboard(){
+        int population= (int) personRepository.count();
+        int covid= (int) covid19Repository.count();
+        int vaccination= (int) vaccinationRepository.count();
+        DashboardResponse response=new DashboardResponse(population,covid,vaccination);
+        return ResponseEntity.ok(response);
     }
 }
